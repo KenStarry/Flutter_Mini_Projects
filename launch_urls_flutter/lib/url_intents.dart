@@ -20,3 +20,12 @@ Future<void> launchInWebView() async {
     throw Exception("Could not launch url");
   }
 }
+
+Future<void> makePhoneCall() async {
+  final Uri launchUri = Uri(
+    scheme: 'tel',
+    path: '+254700692069'
+  );
+
+  await launchUrl(launchUri);
+}

@@ -26,6 +26,10 @@ class _MainScreenState extends State<MainScreen> {
             FilledButton(
                 onPressed: () async => await launchInBrowser(),
                 child: const Text("Launch in Web View")),
+
+          FilledButton(
+              onPressed: () async => await makePhoneCall(),
+              child: const Text("Make Phone Call")),
         ],
       ),
           )),
