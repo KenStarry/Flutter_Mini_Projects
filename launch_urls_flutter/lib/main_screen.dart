@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:launch_urls_flutter/url_intents.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,18 +15,20 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FilledButton(
-              onPressed: () async => await launchInBrowser(),
-              child: const Text("Launch in Browser")),
+            FilledButton(
+                onPressed: () async => await launchInBrowser(),
+                child: const Text("Launch in Browser")),
 
-          FilledButton(
-              onPressed: () async => await launchInBrowser(),
-              child: const Text("Launch in Web View")),
+            FilledButton(
+                onPressed: () async => await launchInBrowser(),
+                child: const Text("Launch in Web View")),
         ],
-      )),
+      ),
+          )),
     );
   }
 }
