@@ -29,3 +29,9 @@ Future<void> makePhoneCall() async {
 
   await launchUrl(launchUri);
 }
+
+Future<void> openWhatsApp() async {
+  final Uri launchUri = Uri.parse('whatsapp://send?phone=254717446607text=Hello World');
+
+  await launchUrl(launchUri);
+}

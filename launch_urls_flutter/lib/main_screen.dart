@@ -30,6 +30,10 @@ class _MainScreenState extends State<MainScreen> {
           FilledButton(
               onPressed: () async => await makePhoneCall(),
               child: const Text("Make Phone Call")),
+
+          FilledButton(
+              onPressed: () async => await openWhatsApp(),
+              child: const Text("Open WhatsApp")),
         ],
       ),
           )),
