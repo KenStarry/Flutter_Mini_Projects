@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:launch_urls_flutter/my_webview.dart';
 
 import 'main_screen.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MainScreen(),
+      home: MyWebView(),
       debugShowCheckedModeBanner: false,
     );
   }
