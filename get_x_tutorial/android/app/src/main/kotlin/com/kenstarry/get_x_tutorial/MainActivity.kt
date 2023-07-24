@@ -1,0 +1,6 @@
+package com.kenstarry.get_x_tutorial
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
