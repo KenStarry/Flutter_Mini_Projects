@@ -35,6 +35,7 @@ class _MyWebViewState extends State<MyWebView> {
         WebViewController.fromPlatformCreationParams(params);
 
     controller
+    ..scrollTo(0, 0)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Colors.red)
       ..setNavigationDelegate(NavigationDelegate(onProgress: (int progress) {
