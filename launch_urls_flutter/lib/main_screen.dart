@@ -15,10 +15,15 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FilledButton(
               onPressed: () async => await launchInBrowser(),
-              child: const Text("Launch in Browser"))
+              child: const Text("Launch in Browser")),
+
+          FilledButton(
+              onPressed: () async => await launchInBrowser(),
+              child: const Text("Launch in Web View")),
         ],
       )),
     );
