@@ -31,7 +31,13 @@ Future<void> makePhoneCall() async {
 }
 
 Future<void> openWhatsApp() async {
-  final Uri launchUri = Uri.parse('whatsapp://send?phone=254717446607text=Hello World');
+  final Uri launchUri = Uri.parse('whatsapp://send?phone=254700692069text=Hello World');
 
-  await launchUrl(launchUri);
+  await launchUrl(launchUri, mode: LaunchMode.externalApplication);
+}
+
+Future<void> openTelegram() async {
+  final Uri launchUri = Uri.parse('https://t.me/+sjOcvz4VfEc5NTRk');
+
+  await launchUrl(launchUri, mode: LaunchMode.externalApplication);
 }

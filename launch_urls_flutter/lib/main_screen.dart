@@ -16,27 +16,27 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             FilledButton(
                 onPressed: () async => await launchInBrowser(),
                 child: const Text("Launch in Browser")),
-
             FilledButton(
                 onPressed: () async => await launchInBrowser(),
                 child: const Text("Launch in Web View")),
-
-          FilledButton(
-              onPressed: () async => await makePhoneCall(),
-              child: const Text("Make Phone Call")),
-
-          FilledButton(
-              onPressed: () async => await openWhatsApp(),
-              child: const Text("Open WhatsApp")),
-        ],
-      ),
-          )),
+            FilledButton(
+                onPressed: () async => await makePhoneCall(),
+                child: const Text("Make Phone Call")),
+            FilledButton(
+                onPressed: () async => await openWhatsApp(),
+                child: const Text("Open WhatsApp")),
+            FilledButton(
+                onPressed: () async => await openTelegram(),
+                child: const Text("Open Telegram")),
+          ],
+        ),
+      )),
     );
   }
 }
