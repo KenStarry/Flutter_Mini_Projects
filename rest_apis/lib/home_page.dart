@@ -13,6 +13,17 @@ class _HomePageState extends State<HomePage> {
   var isLoaded = false;
 
   @override
+  void initState() {
+    super.initState();
+
+    getData();
+  }
+
+  getData() async {
+
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
