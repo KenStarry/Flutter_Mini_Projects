@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,6 +11,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+          child: QrImageView(
+        data: "Starrycodes",
+        size: 180.0,
+        backgroundColor: Colors.red,
+      )),
+    );
   }
 }
