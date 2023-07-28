@@ -50,8 +50,24 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true),
 
                 const SizedBox(height: 48),
-                
-                MyButton(text: "Sign In", onTap: (){})
+
+                MyButton(text: "Sign In", onTap: () {}),
+
+                const SizedBox(height: 48),
+
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Not a member? "),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      "Register now",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                )
               ],
             ),
           ),
