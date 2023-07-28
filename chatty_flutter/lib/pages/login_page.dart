@@ -3,7 +3,10 @@ import 'package:chatty_flutter/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+
+  final void Function()? onRegisterTap;
+
+  const LoginPage({super.key, required this.onRegisterTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -12,6 +15,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  void signIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -55,16 +60,19 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 48),
 
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Not a member? "),
-                    SizedBox(
+                    const Text("Not a member? "),
+                    const SizedBox(
                       width: 4,
                     ),
-                    Text(
-                      "Register now",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: widget.onRegisterTap,
+                      child: const Text(
+                        "Register now",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     )
                   ],
                 )

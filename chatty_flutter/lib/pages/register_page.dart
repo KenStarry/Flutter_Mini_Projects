@@ -4,7 +4,10 @@ import '../components/my_button.dart';
 import '../components/my_text_field.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+
+  final void Function()? onLoginTap;
+
+  const RegisterPage({super.key, required this.onLoginTap});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -15,6 +18,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+
+  void signUp() {}
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +33,14 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //  logo
-                Icon(
+                const Icon(
                   Icons.message_rounded,
                   size: 80,
                 ),
 
                 const SizedBox(height: 48),
 
-                Text("Welcome back you've been missed",
+                const Text("Let's create an account for you",
                     style: TextStyle(fontSize: 16)),
 
                 const SizedBox(height: 24),
@@ -61,20 +66,23 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 const SizedBox(height: 48),
 
-                MyButton(text: "Sign In", onTap: () {}),
+                MyButton(text: "Sign Up", onTap: () {}),
 
                 const SizedBox(height: 48),
 
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Not a member? "),
-                    SizedBox(
+                    const Text("Already a member? "),
+                    const SizedBox(
                       width: 4,
                     ),
-                    Text(
-                      "Register now",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: widget.onLoginTap,
+                      child: const Text(
+                        "Login now",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     )
                   ],
                 )
