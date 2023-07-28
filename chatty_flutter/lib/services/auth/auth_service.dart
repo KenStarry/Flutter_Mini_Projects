@@ -13,6 +13,12 @@ class AuthService extends ChangeNotifier{
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
 
+      //  create a new user document after sign in and merge if the user already exists
+      _firestore.collection('users').doc(userCredential.user!.uid).set({
+        'uid': userCredential.user!.uid,
+        'email': email
+      }, SetOptions(merge: true));
+
       return userCredential;
 
     } on FirebaseAuthException catch (error) {
