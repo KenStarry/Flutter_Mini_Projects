@@ -1,3 +1,4 @@
+import 'package:chatty_flutter/components/my_button.dart';
 import 'package:chatty_flutter/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +48,10 @@ class _LoginPageState extends State<LoginPage> {
                     controller: passwordController,
                     hintText: "Password",
                     obscureText: true),
+
+                const SizedBox(height: 48),
+                
+                MyButton(text: "Sign In", onTap: (){})
               ],
             ),
           ),
