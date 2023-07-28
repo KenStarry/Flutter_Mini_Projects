@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ChatService extends ChangeNotifier {
-
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -17,7 +16,8 @@ class ChatService extends ChangeNotifier {
     final Timestamp currentTimestamp = Timestamp.now();
 
     //  create a new message
-    final msg = Message(senderId: currentUserId,
+    final msg = Message(
+        senderId: currentUserId,
         senderEmail: currentUserEmail,
         receiverId: receiverID,
         message: message,
@@ -30,8 +30,24 @@ class ChatService extends ChangeNotifier {
     String chatRoomId = ids.join("_");
 
     //  add new message to database
-    await _firestore.collection('chat_rooms').doc(chatRoomId).collection('messages').add(msg.toMap());
+    await _firestore
+        .collection('chat_rooms')
+        .doc(chatRoomId)
+        .collection('messages')
+        .add(msg.toMap());
   }
 
 //  GET MESSAGES
+  Stream<QuerySnapshot> getMessages(String userId, String otherUserId) {
+    List<String> ids = [userId, otherUserId];
+    ids.sort();
+    String chatRoomId = ids.join("_");
+
+    return _firestore
+        .collection("chat_rooms")
+        .doc(chatRoomId)
+        .collection("messages")
+        .orderBy("timestamp", descending: false)
+        .snapshots();
+  }
 }
