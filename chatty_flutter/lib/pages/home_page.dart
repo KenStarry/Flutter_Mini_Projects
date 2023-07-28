@@ -68,7 +68,10 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ChatPage(receiverUserID: data['uid'])));
+                  builder: (context) => ChatPage(
+                        receiverUserID: data['uid'],
+                        receiverUserEmail: data['email'],
+                      )));
         },
       );
     } else {
