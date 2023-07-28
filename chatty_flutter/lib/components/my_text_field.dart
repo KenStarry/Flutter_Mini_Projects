@@ -19,7 +19,14 @@ class MyTextField extends StatelessWidget {
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey.shade200)
-        )
+        ),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white)
+        ),
+        fillColor: Colors.grey[200],
+        filled: true,
+        hintText: hintText,
+        hintStyle: TextStyle(color: Colors.black45)
       ),
     );
   }
