@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   //  instance of auth
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -49,7 +48,11 @@ class _HomePageState extends State<HomePage> {
             return const Text('loading...');
           }
 
-          return
+          final snapshots = snapshot.data!.docs;
+
+          return ListView.builder(
+              itemBuilder: (context, index) =>
+                  _buildUserItem(snapshots.elementAt(index)));
         });
   }
 
@@ -62,8 +65,10 @@ class _HomePageState extends State<HomePage> {
         title: data['email'],
         onTap: () {
           //  pass the clicked UId to the chat page
-          Navigator.push(context, MaterialPageRoute(
-              builder: (context) => ChatPage(receiverUserID: data['uid'])));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ChatPage(receiverUserID: data['uid'])));
         },
       );
     } else {
