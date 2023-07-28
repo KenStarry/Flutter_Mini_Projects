@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(onPressed: signOut, icon: const Icon(Icons.logout))
         ],
       ),
-      body: Text("Welcome Home"),
+      body: _buildUserList(),
     );
   }
 
@@ -50,9 +50,9 @@ class _HomePageState extends State<HomePage> {
 
           final snapshots = snapshot.data!.docs;
 
-          return ListView.builder(
-              itemBuilder: (context, index) =>
-                  _buildUserItem(snapshots.elementAt(index)));
+          return ListView(
+            children: snapshots.map((e) => _buildUserItem(e)).toList(),
+          );
         });
   }
 
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     //  display user if they aren't the user currently logged in
     if (_auth.currentUser!.email != data['email']) {
       return ListTile(
-        title: data['email'],
+        title: Text(data['email']),
         onTap: () {
           //  pass the clicked UId to the chat page
           Navigator.push(
