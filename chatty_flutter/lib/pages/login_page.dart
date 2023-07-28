@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //  logo
                 Icon(
@@ -28,13 +29,24 @@ class _LoginPageState extends State<LoginPage> {
                   size: 80,
                 ),
 
+                const SizedBox(height: 48),
+
                 Text("Welcome back you've been missed",
                     style: TextStyle(fontSize: 16)),
+
+                const SizedBox(height: 24),
 
                 MyTextField(
                     controller: emailController,
                     hintText: "Email Address",
-                    obscureText: false)
+                    obscureText: false),
+
+                const SizedBox(height: 16),
+
+                MyTextField(
+                    controller: passwordController,
+                    hintText: "Password",
+                    obscureText: true),
               ],
             ),
           ),
