@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mpesa_flutter_plugin/mpesa_flutter_plugin.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,7 +12,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("M-Pesa API"),
-    )
+      body: Center(
+          child: FilledButton(onPressed: (){}, child: Text("Lipa na M-Pesa"))),
+    );
   }
 }
