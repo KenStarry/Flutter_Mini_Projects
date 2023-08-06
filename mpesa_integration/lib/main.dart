@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mpesa_flutter_plugin/initializer.dart';
 import 'package:mpesa_integration/home_page.dart';
 
 void main() {
+
+  MpesaFlutterPlugin.setConsumerKey('');
+  MpesaFlutterPlugin.setConsumerSecret('');
+
   runApp(const MyApp());
 }
 
